@@ -562,3 +562,82 @@ tbody tr:last-child > * { border-bottom: 0; }
 @media (prefers-reduced-motion: reduce) {
   .home .hero-product-image { animation: none; }
 }
+
+/* Home: editorial banners and section depth */
+.home-summary::before { content: ""; position: absolute; width: 420px; height: 420px; right: -180px; top: -130px; border-radius: 50%; background: radial-gradient(circle, rgba(234,114,81,.085), transparent 70%); pointer-events: none; }
+.home-summary .facts div { transition: background-color .2s ease; }
+.home-summary .facts div:hover { background: #fff4ed; }
+.home-benefits { background: linear-gradient(180deg, #eae7e1, #f6f3ed 72%); }
+.home .benefits-banner, .home .steps-banner { position: relative; overflow: hidden; isolation: isolate; border-radius: 28px; box-shadow: 0 28px 65px rgba(13,21,34,.18); }
+.home .benefits-banner { display: flex; align-items: center; min-height: 420px; padding: clamp(30px, 5vw, 66px); background: #10203b; }
+.home .benefits-banner > img, .home .steps-banner > img { z-index: -2; object-fit: cover; object-position: center; }
+.home .benefits-banner::before { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg, rgba(7,19,39,.96), rgba(7,19,39,.8) 28%, rgba(7,19,39,.05) 75%); }
+.home .benefits-banner-copy { width: min(51%, 530px); color: #fff; }
+.home .benefits-banner-copy .eyebrow { color: #ffb299; }
+.home .benefits-banner-copy .section-title { margin-bottom: 20px; max-width: 18ch; }
+.home .benefits-banner-copy > p:last-child { max-width: 42ch; color: #e3e7ee; font-size: 1.06rem; }
+.home-benefits .benefit-grid { position: relative; z-index: 1; margin-top: -34px; padding-inline: 22px; }
+.home-benefits .benefit { background: rgba(255,253,249,.98); box-shadow: 0 16px 35px rgba(12,22,38,.1); }
+.home-benefits .benefit:nth-child(3n+2) .benefit-icon { background: #e6eff7; color: #255777; }
+.home-benefits .benefit:nth-child(3n) .benefit-icon { background: #e7f2e8; color: #286246; }
+.home-steps { background: linear-gradient(180deg, #fffdf9, #eff2f4); }
+.home .steps-banner { display: flex; align-items: flex-start; min-height: 360px; padding: clamp(28px, 4.5vw, 56px); background: #0b192e; }
+.home .steps-banner::before { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg, rgba(5,15,32,.95), rgba(5,15,32,.62) 31%, transparent 66%); }
+.home .steps-banner-copy { width: min(42%, 440px); color: #fff; }
+.home .steps-banner-copy .eyebrow { color: #ffaf97; }
+.home .steps-banner-copy .section-title { max-width: 13ch; }
+.home-steps .steps-row { position: relative; z-index: 1; margin: -48px 26px 0; }
+.home-steps .steps-row > li { background: #fff; box-shadow: 0 22px 40px rgba(12,25,45,.11); border-color: #e7e9ed; transition: transform .25s var(--ease), box-shadow .25s ease; }
+.home-steps .steps-row > li:hover { transform: translateY(-6px); box-shadow: 0 30px 50px rgba(12,25,45,.17); }
+.home-pricing { overflow: hidden; background: radial-gradient(ellipse 80% 70% at 85% -5%, rgba(235,120,79,.15), transparent 72%), radial-gradient(ellipse 50% 70% at 0% 95%, rgba(66,103,146,.11), transparent 75%), #edece8; }
+.home-pricing .container { position: relative; }
+.home-pricing .section-head { padding: 0 0 20px; border-bottom: 1px solid rgba(17,19,24,.13); }
+.home-pricing .device-options { box-shadow: 0 10px 25px rgba(17,19,24,.07); }
+.home-pricing .price-card.is-featured { transform: translateY(-7px); box-shadow: 0 30px 60px rgba(13,23,43,.28), 0 0 0 4px rgba(226,61,40,.11); }
+.home-pricing .price-card.is-featured:hover { transform: translateY(-11px); }
+.home-pricing .pricing-trial { background: linear-gradient(110deg, #fffdf9, #fff2ec); }
+.home-compare { background: #e9e7e2; }
+.home-compare .compare { position: relative; }
+.home-compare .compare::before { content: ""; position: absolute; left: -26px; top: -30px; width: 150px; height: 150px; border: 1px solid rgba(199,49,30,.16); border-radius: 50%; box-shadow: 0 0 0 30px rgba(199,49,30,.035), 0 0 0 60px rgba(199,49,30,.025); pointer-events: none; }
+.home-compare .table-wrap { position: relative; border: 0; border-radius: 20px; box-shadow: 0 24px 55px rgba(13,23,40,.14); }
+.home-compare thead th:last-child { background: #1c2e46; color: #fff; }
+.home-compare tbody td:last-child { background: #f0f7f1; color: #18543b; border-bottom-color: #dce9e0; }
+.home-compare tbody tr:hover > * { filter: brightness(.98); }
+.home-guides { background: linear-gradient(135deg, #eff1f3, #e9e7e1 65%); }
+.home-guides .post-card { overflow: hidden; padding-top: 0; border: 0; box-shadow: 0 18px 42px rgba(13,23,40,.09); }
+.home-guides .post-card::before { content: ""; display: block; height: 115px; margin: 0 -24px 16px; background: radial-gradient(circle at 70% 30%, rgba(252,155,98,.8), transparent 31%), radial-gradient(circle at 35% 120%, rgba(71,127,168,.9), transparent 55%), linear-gradient(130deg, #101e32, #34435f); }
+.home-guides li:nth-child(2) .post-card::before { background: radial-gradient(circle at 78% 60%, rgba(93,180,187,.8), transparent 35%), linear-gradient(135deg, #172d3a 10%, #35455b 50%, #db8b6f); }
+.home-guides li:nth-child(3) .post-card::before { background: radial-gradient(circle at 25% 35%, rgba(246,184,105,.9), transparent 37%), linear-gradient(120deg, #312a39, #925359 60%, #1c2a45); }
+.home-guides .post-card:hover { box-shadow: 0 28px 55px rgba(13,23,40,.17); }
+.home-faq { background: radial-gradient(ellipse 55% 80% at 0% 50%, rgba(74,111,150,.08), transparent 76%), #faf9f6; }
+.home-faq .faq-layout > div:first-child { position: sticky; top: 110px; }
+.home-faq .faq-item { border-radius: 15px; transition: box-shadow .2s ease, border-color .2s ease; }
+.home-faq .faq-item:hover { box-shadow: 0 15px 30px rgba(13,23,40,.09); }
+.home-final-cta { background: radial-gradient(ellipse 60% 95% at 50% 0%, rgba(236,101,71,.28), transparent 75%), linear-gradient(140deg, #101827, #172943 55%, #101827); }
+.home-final-cta .final-cta-inner { max-width: 760px; }
+.home-final-cta .button { margin-top: 12px; }
+@media (max-width: 920px) {
+  .home .benefits-banner-copy { width: 60%; }
+  .home-benefits .benefit-grid { padding-inline: 12px; }
+  .home .steps-banner-copy { width: 48%; }
+  .home-faq .faq-layout > div:first-child { position: static; }
+}
+@media (max-width: 620px) {
+  .home .benefits-banner, .home .steps-banner { border-radius: 20px; padding: 26px 23px; }
+  .home .benefits-banner { min-height: 460px; align-items: flex-end; }
+  .home .benefits-banner > img { object-position: 70% center; }
+  .home .benefits-banner::before { background: linear-gradient(0deg, rgba(7,19,39,.98), rgba(7,19,39,.78) 41%, rgba(7,19,39,.04) 82%); }
+  .home .benefits-banner-copy { width: 100%; }
+  .home .benefits-banner-copy .section-title { font-size: 2rem; }
+  .home-benefits .benefit-grid { margin-top: -12px; padding-inline: 10px; }
+  .home .steps-banner { min-height: 370px; align-items: flex-end; }
+  .home .steps-banner > img { object-position: 65% top; }
+  .home .steps-banner::before { background: linear-gradient(0deg, rgba(5,15,32,.98), rgba(5,15,32,.8) 34%, rgba(5,15,32,.05) 79%); }
+  .home .steps-banner-copy { width: 100%; }
+  .home .steps-banner-copy .section-title { font-size: 2rem; }
+  .home-steps .steps-row { margin: -12px 10px 0; }
+  .home-pricing .price-card.is-featured { transform: none; }
+  .home-pricing .price-card.is-featured:hover { transform: translateY(-4px); }
+  .home-compare .compare::before { display: none; }
+  .home-guides .post-card { min-height: 280px; }
+}

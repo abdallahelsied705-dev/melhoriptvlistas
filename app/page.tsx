@@ -100,9 +100,14 @@ export default function HomePage() {
 
       <section className="section home-benefits" aria-labelledby="porque">
         <div className="container">
-          <p className="eyebrow">Porquê nós</p>
-          <h2 id="porque" className="section-title">Transparência primeiro. Depois, televisão.</h2>
-          <p className="section-lead home-section-intro">Tudo o que precisas de saber para começar com confiança, sem surpresas no fim.</p>
+          <div className="benefits-banner">
+            <Image src="/images/benefits-banner.webp" alt="Sala de estar com televisão e vista para a costa ao entardecer" fill sizes="(max-width: 620px) 100vw, 1200px" />
+            <div className="benefits-banner-copy">
+              <p className="eyebrow">Porquê nós</p>
+              <h2 id="porque" className="section-title">Transparência primeiro. Depois, televisão.</h2>
+              <p>Tudo o que precisas de saber para começar com confiança, sem surpresas no fim.</p>
+            </div>
+          </div>
           <ul className="benefit-grid">
             {benefits.map((b) => (
               <li key={b.title} className="benefit">
@@ -131,8 +136,13 @@ export default function HomePage() {
 
       <section className="section home-steps" aria-labelledby="como-funciona">
         <div className="container">
-          <p className="eyebrow">Como funciona</p>
-          <h2 id="como-funciona" className="section-title">A ver televisão em 3 passos</h2>
+          <div className="steps-banner">
+            <Image src="/images/steps-banner.webp" alt="Telemóvel, box e televisão ligados numa instalação simples" fill sizes="(max-width: 620px) 100vw, 1200px" />
+            <div className="steps-banner-copy">
+              <p className="eyebrow">Como funciona</p>
+              <h2 id="como-funciona" className="section-title">A ver televisão em 3 passos</h2>
+            </div>
+          </div>
           <ol className="steps steps-row">
             {steps.map((s) => (
               <li key={s.title}>
