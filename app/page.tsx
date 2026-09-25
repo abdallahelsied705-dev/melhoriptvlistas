@@ -1,10 +1,10 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { facts, formatEuro, lowestMonthly, lowestPrice, offer } from "@/config/offer";
 import { siteConfig } from "@/config/site";
 import { publishedArticles } from "@/content";
 import { generalFaq } from "@/content/pages/trust";
-import { EpgBoard } from "@/components/EpgBoard";
 import { FaqList } from "@/components/FaqList";
 import { Icon, WhatsAppIcon, type IconName } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
@@ -73,9 +73,8 @@ export default function HomePage() {
           </div>
           <div className="hero-visual">
             <div className="hero-visual-glow" aria-hidden="true" />
-            <div className="hero-screen" aria-hidden="true"><span>O TEU MUNDO, NUM ECRÃ.</span><span className="hero-screen-play">▶</span></div>
-            <EpgBoard />
-            <div className="hero-visual-note"><span className="live-dot" /> Uma amostra da experiência</div>
+            <Image className="hero-product-image" src="/images/hero-devices.webp" alt="Televisão, tablet e telemóvel a apresentar experiências de cinema, desporto e paisagens" width={1400} height={933} sizes="(max-width: 920px) 100vw, 50vw" priority />
+            <div className="hero-visual-note"><span className="live-dot" /> Em todos os teus ecrãs</div>
           </div>
         </div>
         <div className="container hero-bottom" aria-label="Resumo do serviço">
@@ -118,12 +117,13 @@ export default function HomePage() {
 
       <section className="section section-dark home-channels" aria-labelledby="canais">
         <div className="container">
-          <div className="section-head">
-            <div>
+          <div className="channel-banner">
+            <Image src="/images/channels-banner.webp" alt="Cenários de televisão, desporto, cinema e entretenimento em painéis luminosos" fill sizes="(max-width: 620px) 100vw, 1200px" />
+            <div className="channel-banner-content">
               <p className="eyebrow">Lista de canais</p>
               <h2 id="canais" className="section-title">{facts.channels}, organizados para encontrares tudo depressa</h2>
+              <Link className="text-link" href="/lista-iptv-portugal">Ver a lista por categoria <Icon name="arrow" size={18} /></Link>
             </div>
-            <Link className="text-link" href="/lista-iptv-portugal">Ver a lista por categoria <Icon name="arrow" size={18} /></Link>
           </div>
           <ChannelsGrid />
         </div>
@@ -165,6 +165,10 @@ export default function HomePage() {
               <h2 id="dispositivos" className="section-title">Funciona no que já tens em casa</h2>
             </div>
             <Link className="text-link" href="/instalar-iptv">Todos os guias <Icon name="arrow" size={18} /></Link>
+          </div>
+          <div className="device-banner">
+            <Image src="/images/devices-banner.webp" alt="Televisão, computador, tablet e telemóvel numa sala de estar" fill sizes="(max-width: 620px) 100vw, 1200px" />
+            <div className="device-banner-copy"><span>UM SERVIÇO.</span><strong>Todos os teus ecrãs.</strong></div>
           </div>
           <DevicesGrid />
         </div>
