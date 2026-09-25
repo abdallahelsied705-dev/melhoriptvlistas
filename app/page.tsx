@@ -40,7 +40,7 @@ export default function HomePage() {
   const latest = publishedArticles().slice(0, 3);
 
   return (
-    <main id="conteudo">
+    <main id="conteudo" className="home">
       <JsonLd
         data={graph(
           organization(),
@@ -55,9 +55,9 @@ export default function HomePage() {
         <div className="container hero-grid">
           <div className="hero-copy">
             <p className="eyebrow eyebrow-live"><span className="live-dot" /> IPTV Portugal · atualizado em 2026</p>
-            <h1>Melhor IPTV em Portugal: {facts.channels} numa lista que testas antes de pagar</h1>
+            <h1>Melhor IPTV em Portugal. <span>{facts.channels} para descobrir.</span></h1>
             <p className="hero-lead">
-              Canais portugueses e internacionais, {facts.vod} até 4K, guia TV e Catch-Up — na Smart TV, no Fire TV Stick ou no telemóvel. Planos sem fidelização desde {formatEuro(lowestMonthly)}/mês.
+              A melhor experiência IPTV começa com uma escolha informada: canais portugueses e internacionais, {facts.vod} até 4K, guia TV e Catch-Up. Testa no teu ecrã antes de escolher um plano.
             </p>
             <div className="hero-actions">
               <a className="button button-signal button-lg" href={trialUrl()} target="_blank" rel="noopener noreferrer">
@@ -71,11 +71,22 @@ export default function HomePage() {
               <li><Icon name="check" size={16} /> Apoio {offer.support}</li>
             </ul>
           </div>
-          <EpgBoard />
+          <div className="hero-visual">
+            <div className="hero-visual-glow" aria-hidden="true" />
+            <div className="hero-screen" aria-hidden="true"><span>O TEU MUNDO, NUM ECRÃ.</span><span className="hero-screen-play">▶</span></div>
+            <EpgBoard />
+            <div className="hero-visual-note"><span className="live-dot" /> Uma amostra da experiência</div>
+          </div>
+        </div>
+        <div className="container hero-bottom" aria-label="Resumo do serviço">
+          <span><strong>{facts.channels}</strong> canais em direto</span>
+          <span><strong>Até 4K</strong> qualidade de imagem</span>
+          <span><strong>{formatEuro(lowestMonthly)}/mês</strong> no plano anual</span>
+          <span><strong>{offer.trialHours} horas</strong> para testar grátis</span>
         </div>
       </section>
 
-      <section className="section section-tight" aria-labelledby="resumo">
+      <section className="section section-tight home-summary" aria-labelledby="resumo">
         <div className="container summary-grid">
           <div>
             <p className="eyebrow">Em resumo</p>
@@ -88,10 +99,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section" aria-labelledby="porque">
+      <section className="section home-benefits" aria-labelledby="porque">
         <div className="container">
           <p className="eyebrow">Porquê nós</p>
           <h2 id="porque" className="section-title">Transparência primeiro. Depois, televisão.</h2>
+          <p className="section-lead home-section-intro">Tudo o que precisas de saber para começar com confiança, sem surpresas no fim.</p>
           <ul className="benefit-grid">
             {benefits.map((b) => (
               <li key={b.title} className="benefit">
@@ -104,7 +116,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section section-dark" aria-labelledby="canais">
+      <section className="section section-dark home-channels" aria-labelledby="canais">
         <div className="container">
           <div className="section-head">
             <div>
@@ -117,7 +129,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section" aria-labelledby="como-funciona">
+      <section className="section home-steps" aria-labelledby="como-funciona">
         <div className="container">
           <p className="eyebrow">Como funciona</p>
           <h2 id="como-funciona" className="section-title">A ver televisão em 3 passos</h2>
@@ -132,7 +144,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section section-sand" aria-labelledby="precos">
+      <section className="section section-sand home-pricing" aria-labelledby="precos">
         <div className="container">
           <div className="section-head">
             <div>
@@ -145,7 +157,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section" aria-labelledby="dispositivos">
+      <section className="section home-devices" aria-labelledby="dispositivos">
         <div className="container">
           <div className="section-head">
             <div>
@@ -158,7 +170,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section section-tight" aria-labelledby="comparar">
+      <section className="section section-tight home-compare" aria-labelledby="comparar">
         <div className="container compare">
           <div>
             <p className="eyebrow">IPTV vs operador</p>
@@ -181,7 +193,7 @@ export default function HomePage() {
       </section>
 
       {latest.length ? (
-        <section className="section section-sand" aria-labelledby="guias">
+        <section className="section section-sand home-guides" aria-labelledby="guias">
           <div className="container">
             <div className="section-head">
               <div>
@@ -205,7 +217,7 @@ export default function HomePage() {
         </section>
       ) : null}
 
-      <section className="section" aria-labelledby="faq">
+      <section className="section home-faq" aria-labelledby="faq">
         <div className="container faq-layout">
           <div>
             <p className="eyebrow">Perguntas frequentes</p>
@@ -216,7 +228,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="final-cta" aria-labelledby="comecar">
+      <section className="final-cta home-final-cta" aria-labelledby="comecar">
         <div className="container final-cta-inner">
           <h2 id="comecar">Vê primeiro. Decide depois.</h2>
           <p>{offer.trialHours} horas grátis com {facts.channels} e {facts.vod}. Sem cartão.</p>
