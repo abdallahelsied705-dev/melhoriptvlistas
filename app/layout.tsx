@@ -5,6 +5,7 @@ import { siteConfig } from "@/config/site";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { BackToTop } from "@/components/BackToTop";
 import "./globals.css";
 
 const display = Archivo({ subsets: ["latin"], axes: ["wdth"], variable: "--font-display", display: "swap" });
@@ -41,6 +42,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {children}
         <SiteFooter />
         <WhatsAppFloat />
+        <BackToTop />
         {process.env.VERCEL === "1" ? <Analytics /> : null}
       </body>
     </html>
