@@ -1,4 +1,4 @@
-import { facts, formatEuro, monthlyFor, offer } from "@/config/offer";
+import { facts, formatEuro, monthlyFor, offer, priceFor } from "@/config/offer";
 import type { Article } from "@/content/types";
 
 export const articles: Article[] = [
@@ -12,18 +12,18 @@ export const articles: Article[] = [
     description: "Quanto custa IPTV em Portugal: preços mensais e anuais, custo por ecrã, custos escondidos (apps, equipamento) e comparação com a TV do operador.",
     eyebrow: "Preços",
     h1: "Quanto custa IPTV em Portugal em 2026?",
-    summary: `Os nossos planos custam ${formatEuro(offer.plans[1].price)} por 1 mês com 1 dispositivo, ${formatEuro(offer.plans[3].price)} por 3 meses com 2, ${formatEuro(offer.plans[6].price)} por 6 meses com 3 e ${formatEuro(offer.plans[12].price)} por 12 meses com 4 (cerca de ${formatEuro(monthlyFor(4, 12))}/mês). A isto podes somar o equipamento (se a TV não tiver apps) e, em algumas apps, uma ativação paga ao programador.`,
+    summary: `Os nossos planos começam em ${formatEuro(priceFor(1, 1))} por 1 mês, ${formatEuro(priceFor(1, 3))} por 3 meses, ${formatEuro(priceFor(1, 6))} por 6 meses e ${formatEuro(priceFor(1, 12))} por 12 meses (cerca de ${formatEuro(monthlyFor(1, 12))}/mês) para 1 dispositivo. Podes escolher até 4 dispositivos em simultâneo. A isto podes somar o equipamento e, em algumas apps, uma ativação paga ao programador.`,
     blocks: [
       { t: "h2", text: "Preço por duração" },
       {
         t: "table",
-        caption: "Cada plano inclui um número diferente de dispositivos",
-        head: ["Plano", "Dispositivos incluídos", "Preço total", "Por mês"],
-        rows: offer.months.map((m) => [m === 1 ? "1 mês" : `${m} meses`, String(offer.plans[m].includedDevices), formatEuro(offer.plans[m].price), formatEuro(offer.plans[m].price / m)]),
+        caption: "Preços para 1 dispositivo",
+        head: ["Plano", "Preço total", "Por mês"],
+        rows: offer.months.map((m) => [m === 1 ? "1 mês" : `${m} meses`, formatEuro(priceFor(1, m)), formatEuro(monthlyFor(1, m))]),
       },
-      { t: "p", text: "Compara o preço total, a duração e os dispositivos incluídos. O plano anual inclui quatro ecrãs em simultâneo." },
+      { t: "p", text: "Compara o preço total, a duração e o número de dispositivos em simultâneo que precisas." },
       { t: "h2", text: "Preço por número de ecrãs" },
-      { t: "p", text: `Se várias pessoas veem ao mesmo tempo, escolhe um plano com mais dispositivos incluídos. Por exemplo, o plano de 3 meses inclui 2 dispositivos por ${formatEuro(offer.plans[3].price)} e o anual inclui 4 por ${formatEuro(offer.plans[12].price)}. Vê a tabela completa em [preços](/precos).` },
+      { t: "p", text: `Se várias pessoas veem ao mesmo tempo, escolhe o número de dispositivos pretendido. Por exemplo, 3 meses para 2 dispositivos custam ${formatEuro(priceFor(2, 3))} e 12 meses para 4 dispositivos custam ${formatEuro(priceFor(4, 12))}. Vê a tabela completa em [preços](/precos).` },
       { t: "h2", text: "Custos que muitas pessoas esquecem" },
       {
         t: "ul",
@@ -38,7 +38,7 @@ export const articles: Article[] = [
       { t: "cta", kind: "pricing" },
     ],
     faq: [
-      { q: "Qual o plano IPTV mais barato por mês?", a: `O plano de 12 meses: cerca de ${formatEuro(monthlyFor(4, 12))} por mês com 4 dispositivos incluídos.` },
+      { q: "Qual o plano IPTV mais barato por mês?", a: `O plano de 12 meses: cerca de ${formatEuro(monthlyFor(1, 12))} por mês para 1 dispositivo.` },
       { q: "Há custos de ativação?", a: "Não da nossa parte. Algumas apps de Smart TV cobram uma ativação ao programador da app." },
     ],
     related: ["/precos", "/iptv-vs-meo-nos-vodafone", "/blog/como-evitar-burlas-iptv"],
@@ -135,7 +135,7 @@ export const articles: Article[] = [
     description: "Como usar IPTV em várias TVs e telemóveis: diferença entre instalar e ver em simultâneo, que plano escolher e preços de 1 a 4 dispositivos.",
     eyebrow: "Guias",
     h1: "IPTV em vários dispositivos: como funciona",
-    summary: `Podes instalar a app IPTV em quantos equipamentos quiseres; o que o plano limita é o número de ecrãs a ver ao mesmo tempo. O plano mensal inclui 1 dispositivo; para duas pessoas em simultâneo, o plano trimestral inclui 2 por ${formatEuro(offer.plans[3].price)}. O anual inclui 4 dispositivos por ${formatEuro(offer.plans[12].price)}.`,
+    summary: `Podes instalar a app IPTV em quantos equipamentos quiseres; o que o plano limita é o número de ecrãs a ver ao mesmo tempo. Podes escolher de 1 a 4 dispositivos para qualquer duração. Por exemplo, 3 meses com 2 dispositivos custam ${formatEuro(priceFor(2, 3))} e 12 meses com 4 custam ${formatEuro(priceFor(4, 12))}.`,
     blocks: [
       { t: "h2", text: "Instalar ≠ ver em simultâneo" },
       { t: "p", text: "Podes ter a app na TV da sala, na do quarto e no telemóvel. Se só uma estiver a ver de cada vez, basta 1 dispositivo. Se duas estiverem ligadas ao mesmo tempo, precisas de 2." },
@@ -150,11 +150,11 @@ export const articles: Article[] = [
           ["Casa grande ou segunda habitação", "4 dispositivos"],
         ],
       },
-      { t: "h2", text: "Preços e dispositivos por plano" },
+      { t: "h2", text: "Preços por 12 meses" },
       {
         t: "table",
-        head: ["Duração", "Dispositivos incluídos", "Preço total"],
-        rows: offer.months.map((m) => [`${m} ${m === 1 ? "mês" : "meses"}`, String(offer.plans[m].includedDevices), formatEuro(offer.plans[m].price)]),
+        head: ["Dispositivos", "12 meses", "Por mês"],
+        rows: offer.devices.map((d) => [String(d), formatEuro(priceFor(d, 12)), formatEuro(monthlyFor(d, 12))]),
       },
       { t: "callout", tone: "info", title: "Internet para vários ecrãs", text: "Soma a velocidade por ecrã: 2 ecrãs em HD precisam de cerca de 20 Mbps estáveis. Mais em [internet mínima para IPTV](/blog/internet-minima-para-iptv)." },
       { t: "cta", kind: "pricing" },

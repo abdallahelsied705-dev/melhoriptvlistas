@@ -17,7 +17,7 @@ export function planUrl(devices: Devices, months: Months) {
       "Olá! 👋 Quero subscrever este plano:",
       "",
       `📦 Duração: ${monthsLabel(months)}`,
-      `📺 Dispositivos: ${devicesLabel(Math.max(devices, offer.plans[months].includedDevices) as Devices)} (incluídos: ${offer.plans[months].includedDevices})`,
+      `📺 Dispositivos: ${devicesLabel(devices)}`,
       `💰 Preço: ${formatEuro(priceFor(devices, months))}`,
       "",
       "Podem enviar-me o link de pagamento?",

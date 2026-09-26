@@ -1,4 +1,4 @@
-import { formatEuro, monthsLabel, offer } from "@/config/offer";
+import { formatEuro, monthsLabel, offer, priceFor } from "@/config/offer";
 import { siteConfig } from "@/config/site";
 import type { Faq } from "@/content/types";
 import { absoluteUrl, ogImageUrl } from "@/lib/seo";
@@ -82,9 +82,9 @@ export function article(input: { path: string; headline: string; description: st
   };
 }
 
-/** Produto com os quatro planos e respetivos dispositivos incluídos. Sem avaliações inventadas. */
+/** Produto com as ofertas reais por duração e dispositivo. Sem avaliações inventadas. */
 export function product(path: string) {
-  const prices = offer.months.map((m) => offer.plans[m].price);
+  const prices = offer.devices.flatMap((d) => offer.months.map((m) => priceFor(d, m)));
   return {
     "@type": "Product",
     "@id": `${siteConfig.url}/#product`,
@@ -100,8 +100,8 @@ export function product(path: string) {
       offerCount: prices.length,
       offers: offer.months.map((m) => ({
         "@type": "Offer",
-        name: `Plano ${monthsLabel(m)} · ${offer.plans[m].includedDevices} dispositivo${offer.plans[m].includedDevices > 1 ? "s" : ""} (${formatEuro(offer.plans[m].price)})`,
-        price: offer.plans[m].price.toFixed(2),
+        name: `Plano ${monthsLabel(m)} · 1 dispositivo (${formatEuro(priceFor(1, m))})`,
+        price: priceFor(1, m).toFixed(2),
         priceCurrency: "EUR",
         availability: "https://schema.org/InStock",
         url: absoluteUrl(path),

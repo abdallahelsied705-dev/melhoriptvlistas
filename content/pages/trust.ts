@@ -8,7 +8,7 @@ const updated = "2026-09-25";
 export const generalFaq: Faq[] = [
   { q: "O que é IPTV?", a: "IPTV (Internet Protocol Television) é televisão transmitida pela internet em vez de antena, cabo ou satélite. Vês os canais através de uma app na Smart TV, num Fire TV Stick, numa box Android, no telemóvel ou no computador." },
   { q: "Quantos canais tem a lista?", a: `${facts.channels} em direto de Portugal e de dezenas de países, mais ${facts.vod} a pedido, em qualidade até 4K.` },
-  { q: "Quanto custa?", a: `Desde ${formatEuro(lowestPrice)} por 1 mês com 1 dispositivo, ou cerca de ${formatEuro(lowestMonthly)} por mês no plano de 12 meses com 4 dispositivos incluídos.` },
+  { q: "Quanto custa?", a: `Desde ${formatEuro(lowestPrice)} por 1 mês, ou cerca de ${formatEuro(lowestMonthly)} por mês no plano de 12 meses, para 1 dispositivo. Há opções para até 4 dispositivos em simultâneo.` },
   { q: "Posso testar antes de pagar?", a: `Sim. O teste grátis de ${offer.trialHours} horas é pedido pelo WhatsApp e não exige cartão nem pagamento.` },
   { q: "Há fidelização?", a: "Não. Pagas o período que escolhes (1, 3, 6 ou 12 meses) e decides no fim se renovas." },
   { q: "Em que equipamentos funciona?", a: "Smart TV Samsung e LG, Android TV e Google TV, Fire TV Stick, box Android, iPhone, iPad, Apple TV, telemóveis Android e computadores Windows e Mac." },

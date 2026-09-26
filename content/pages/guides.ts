@@ -1,4 +1,4 @@
-import { facts, formatEuro, lowestMonthly, offer } from "@/config/offer";
+import { facts, formatEuro, lowestMonthly, offer, priceFor } from "@/config/offer";
 import type { Page } from "@/content/types";
 
 const updated = "2026-09-25";
@@ -63,7 +63,7 @@ export const guidePages: Page[] = [
     faq: [
       { q: "Qual é a melhor lista IPTV em Portugal?", a: "É a que passa nos 9 critérios deste guia no teu equipamento e com a tua internet. Por isso recomendamos sempre um teste grátis antes de pagar." },
       { q: "Listas IPTV grátis valem a pena?", a: "Raramente. Listas grátis costumam ser instáveis, desaparecer sem aviso e podem expor-te a riscos de segurança. Para uso diário, um serviço com apoio é mais fiável." },
-      { q: "Quanto deve custar uma boa lista IPTV?", a: `Compara a duração e o número de dispositivos incluídos em cada plano. Os nossos preços começam em ${formatEuro(offer.plans[1].price)} por 1 mês com 1 dispositivo.` },
+      { q: "Quanto deve custar uma boa lista IPTV?", a: `Compara a duração e o número de dispositivos em simultâneo. Os nossos preços começam em ${formatEuro(priceFor(1, 1))} por 1 mês com 1 dispositivo.` },
     ],
     related: ["/teste-iptv-gratis", "/blog/como-evitar-burlas-iptv", "/precos", "/iptv-vs-meo-nos-vodafone"],
   },
