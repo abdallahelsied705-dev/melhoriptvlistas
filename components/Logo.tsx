@@ -1,12 +1,12 @@
-/** Marca: ecrã com três linhas de lista e um ponto «em direto». */
-export function LogoMark({ size = 36 }: { size?: number }) {
+/** Monograma M com sinal de transmissão em direto. */
+export function LogoMark({ size = 42 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 40 40" aria-hidden="true" focusable="false">
-      <rect x="1" y="1" width="38" height="38" rx="10" fill="var(--ink)" />
-      <rect x="9" y="12" width="16" height="3" rx="1.5" fill="var(--paper)" />
-      <rect x="9" y="18.5" width="22" height="3" rx="1.5" fill="var(--paper)" opacity=".75" />
-      <rect x="9" y="25" width="12" height="3" rx="1.5" fill="var(--paper)" opacity=".5" />
-      <circle cx="30" cy="13.5" r="3.5" fill="var(--signal)" />
+    <svg width={size} height={size} viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+      <defs><linearGradient id="logo-brand" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#263f5b" /><stop offset="1" stopColor="#101827" /></linearGradient></defs>
+      <rect x="1" y="1" width="62" height="62" rx="17" fill="url(#logo-brand)" />
+      <rect x="1.5" y="1.5" width="61" height="61" rx="16.5" fill="none" stroke="#fff" strokeOpacity=".18" />
+      <path d="M13 46V20c0-1.1.9-2 2-2h5l12 15 12-15h5c1.1 0 2 .9 2 2v26h-8V31L32 45 21 31v15h-8Z" fill="#fff9f1" />
+      <circle cx="51" cy="12" r="5" fill="#f26a50" stroke="#17253a" strokeWidth="2" />
     </svg>
   );
 }
@@ -17,7 +17,7 @@ export function Logo() {
       <LogoMark />
       <span className="logo-text">
         <span className="logo-top">Melhor IPTV</span>
-        <span className="logo-bottom">Listas<span className="logo-tld">.pt</span></span>
+        <span className="logo-bottom">LISTAS<span className="logo-tld">.PT</span></span>
       </span>
     </span>
   );

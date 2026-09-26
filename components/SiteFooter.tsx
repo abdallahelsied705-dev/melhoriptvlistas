@@ -2,7 +2,7 @@ import Link from "next/link";
 import { footerNav } from "@/config/navigation";
 import { facts, offer } from "@/config/offer";
 import { siteConfig } from "@/config/site";
-import { LogoMark } from "@/components/Logo";
+import { Logo } from "@/components/Logo";
 import { WhatsAppIcon } from "@/components/Icon";
 import { contactUrl } from "@/lib/whatsapp";
 
@@ -11,7 +11,7 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="container footer-grid">
         <div className="footer-brand">
-          <Link href="/" className="footer-logo"><LogoMark size={40} /> <span>{siteConfig.name}</span></Link>
+          <Link href="/" className="footer-logo" aria-label={`${siteConfig.name} — página inicial`}><Logo /></Link>
           <p>
             IPTV para Portugal e portugueses no estrangeiro: {facts.channels}, {facts.vod}, planos sem fidelização e apoio {offer.support}.
           </p>
