@@ -104,7 +104,7 @@ export default function HomePage() {
             <p className="eyebrow">Em resumo</p>
             <h2 id="resumo">O que é a {siteConfig.name}?</h2>
             <p className="section-lead">
-              A {siteConfig.name} é um serviço de IPTV para Portugal: {facts.channels} em direto e {facts.vod} a pedido, vistos através de uma app na tua TV, box ou telemóvel. Custa {formatEuro(lowestPrice)} por 1 mês ou cerca de {formatEuro(lowestMonthly)} por mês no plano anual, sem fidelização, e podes testar grátis durante {offer.trialHours} horas.
+              A {siteConfig.name} é um serviço de IPTV para Portugal: {facts.channels} em direto e {facts.vod} a pedido, vistos através de uma app na tua TV, box ou telemóvel. Custa {formatEuro(lowestPrice)} por 1 mês com 1 dispositivo ou cerca de {formatEuro(lowestMonthly)} por mês no plano anual com 4 dispositivos incluídos, sem fidelização, e podes testar grátis durante {offer.trialHours} horas.
             </p>
           </div>
           <FactsGrid />

@@ -10,7 +10,7 @@ export const siteConfig = {
   language: "pt-PT",
   title: "Melhor IPTV Portugal 2026: 45.000 Canais e Teste Grátis 24h",
   description:
-    "Lista IPTV em Portugal com 45.000 canais, +120.000 filmes e séries em 4K, guia TV e apoio 24/7 em português. Teste grátis 24h e planos desde 12,99€.",
+    "Lista IPTV em Portugal com 45.000 canais, +120.000 filmes e séries em 4K, guia TV e apoio 24/7 em português. Teste grátis 24h e planos desde 15€.",
   /** Data da última revisão geral do conteúdo (mostrada como "Atualizado em"). */
   updated: "2026-09-26",
 } as const;

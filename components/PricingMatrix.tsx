@@ -13,7 +13,7 @@ export function PricingMatrix() {
   return (
     <div className="pricing" id="planos">
       <fieldset className="device-picker">
-        <legend>Dispositivos a ver em simultâneo</legend>
+        <legend>Quantos dispositivos precisas em simultâneo?</legend>
         <div className="device-options">
           {offer.devices.map((count) => (
             <label key={count} className={count === devices ? "is-active" : undefined}>
@@ -40,8 +40,10 @@ export function PricingMatrix() {
               <p className="price-monthly">
                 {months === 1 ? "Pagamento único" : `≈ ${formatEuro(monthlyFor(devices, months))} por mês`}
               </p>
+              <p className="price-monthly">{devicesLabel(offer.plans[months].includedDevices)} incluído{offer.plans[months].includedDevices > 1 ? "s" : ""} no plano</p>
+              {devices > offer.plans[months].includedDevices && <p className="price-monthly">+{formatEuro(offer.plans[months].extraDevicePrice)} por dispositivo extra</p>}
               <ul className="price-features">
-                <li><Icon name="check" size={16} /> {devicesLabel(devices)} em simultâneo</li>
+                <li><Icon name="check" size={16} /> Até {devicesLabel(Math.max(devices, offer.plans[months].includedDevices) as Devices)} em simultâneo</li>
                 {offer.features.map((feature) => (
                   <li key={feature}><Icon name="check" size={16} /> {feature}</li>
                 ))}

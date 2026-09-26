@@ -1,7 +1,7 @@
 /**
  * Fonte única dos factos comerciais. Qualquer número mostrado no site
  * (canais, preços, teste, dispositivos) vem daqui — altera só este ficheiro.
- * Oferta confirmada pelo dono: igual à do iptvbr.pt (setembro 2026).
+ * Preços e dispositivos incluídos iguais aos planos do iptv-pt.pt (setembro 2026).
  */
 
 export type Devices = 1 | 2 | 3 | 4;
@@ -17,13 +17,13 @@ export const offer = {
   trialHours: 24,
   devices: [1, 2, 3, 4] as Devices[],
   months: [1, 3, 6, 12] as Months[],
-  /** Preço total em euros por número de dispositivos em simultâneo e duração. */
-  prices: {
-    1: { 1: 12.99, 3: 22.99, 6: 34.99, 12: 49.99 },
-    2: { 1: 19.99, 3: 36.99, 6: 54.99, 12: 74.99 },
-    3: { 1: 26.99, 3: 47.99, 6: 69.99, 12: 94.99 },
-    4: { 1: 32.99, 3: 57.99, 6: 84.99, 12: 114.99 },
-  } as Record<Devices, Record<Months, number>>,
+  /** Cada duração tem o seu preço base e os dispositivos já incluídos. */
+  plans: {
+    1: { price: 15, includedDevices: 1, extraDevicePrice: 9 },
+    3: { price: 46, includedDevices: 2, extraDevicePrice: 13 },
+    6: { price: 100, includedDevices: 3, extraDevicePrice: 20 },
+    12: { price: 169, includedDevices: 4, extraDevicePrice: 25 },
+  } as Record<Months, { price: number; includedDevices: Devices; extraDevicePrice: number }>,
   features: [
     "Qualidade até 4K Ultra HD",
     "45.000 canais em direto",
@@ -45,7 +45,8 @@ export function formatEuro(value: number) {
 }
 
 export function priceFor(devices: Devices, months: Months) {
-  return offer.prices[devices][months];
+  const plan = offer.plans[months];
+  return plan.price + Math.max(0, devices - plan.includedDevices) * plan.extraDevicePrice;
 }
 
 export function monthlyFor(devices: Devices, months: Months) {
@@ -60,7 +61,7 @@ export function devicesLabel(devices: Devices) {
   return devices === 1 ? "1 dispositivo" : `${devices} dispositivos`;
 }
 
-/** Custo mensal mais baixo (1 dispositivo, plano de 12 meses). */
+/** Custo mensal mais baixo (plano anual, com 4 dispositivos incluídos). */
 export const lowestMonthly = monthlyFor(1, 12);
 export const lowestPrice = priceFor(1, 1);
 
