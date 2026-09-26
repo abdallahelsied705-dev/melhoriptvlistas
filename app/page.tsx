@@ -17,7 +17,13 @@ import { trialUrl } from "@/lib/whatsapp";
 // Revalida de hora a hora: artigos agendados entram na secção do blog sem novo deploy.
 export const revalidate = 3600;
 
-export const metadata: Metadata = pageMetadata({ path: "/", title: siteConfig.title, description: siteConfig.description });
+export const metadata: Metadata = pageMetadata({
+  path: "/",
+  title: siteConfig.title,
+  description: siteConfig.description,
+  socialTitle: "Melhor IPTV Listas | TV em direto e filmes a pedido",
+  socialDescription: `${facts.channels}, ${facts.vod}, teste grátis ${offer.trialHours}h e planos desde ${formatEuro(lowestPrice)} em Portugal.`,
+});
 
 const homeFaq = generalFaq.slice(0, 8);
 

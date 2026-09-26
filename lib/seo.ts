@@ -17,13 +17,15 @@ type MetaInput = {
   type?: "website" | "article";
   publishedTime?: string;
   modifiedTime?: string;
+  socialTitle?: string;
+  socialDescription?: string;
 };
 
 /**
  * Metadados de cada página: título absoluto (sem sufixo automático), canonical,
  * Open Graph e Twitter, com a imagem social própria de cada página.
  */
-export function pageMetadata({ path, title, description, type = "website", publishedTime, modifiedTime }: MetaInput): Metadata {
+export function pageMetadata({ path, title, description, type = "website", publishedTime, modifiedTime, socialTitle, socialDescription }: MetaInput): Metadata {
   const url = absoluteUrl(path);
   const image = { url: ogImageUrl(path), width: 1200, height: 630, alt: title };
   return {
@@ -33,13 +35,13 @@ export function pageMetadata({ path, title, description, type = "website", publi
     openGraph: {
       type,
       url,
-      title,
-      description,
+      title: socialTitle ?? title,
+      description: socialDescription ?? description,
       siteName: siteConfig.name,
       locale: siteConfig.locale,
       images: [image],
       ...(type === "article" ? { publishedTime, modifiedTime } : {}),
     },
-    twitter: { card: "summary_large_image", title, description, images: [image.url] },
+    twitter: { card: "summary_large_image", title: socialTitle ?? title, description: socialDescription ?? description, images: [image.url] },
   };
 }
