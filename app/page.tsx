@@ -36,6 +36,13 @@ const steps = [
   { title: "Escolhe o plano", text: "Gostaste? Escolhe duração e ecrãs e recebe o link de pagamento." },
 ];
 
+const trialChecks: { icon: IconName; title: string; text: string; href: string; link: string }[] = [
+  { icon: "tv", title: "Compatibilidade", text: "Testa na TV ou no dispositivo que vais usar e confirma se a app é fácil de navegar.", href: "/instalar-iptv", link: "Guias de instalação" },
+  { icon: "bolt", title: "Estabilidade", text: "Experimenta nos horários em que costumas ver televisão e observa pausas ou buffering.", href: "/resolver-buffering-iptv", link: "Resolver interrupções" },
+  { icon: "grid", title: "Conteúdo e guia", text: "Procura as categorias que te interessam e verifica a qualidade, o EPG e o Catch-Up.", href: "/lista-iptv-portugal", link: "Explorar categorias" },
+  { icon: "chat", title: "Apoio", text: "Faz uma pergunta concreta e vê se a resposta te ajuda a configurar o teu equipamento.", href: "/contacto", link: "Falar com o apoio" },
+];
+
 export default function HomePage() {
   const latest = publishedArticles().slice(0, 3);
 
@@ -154,6 +161,31 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="section home-trial-check" aria-labelledby="avaliar-teste">
+        <div className="container">
+          <div className="trial-check-head">
+            <div>
+              <p className="eyebrow">Guia prático · teste de 24 horas</p>
+              <h2 id="avaliar-teste" className="section-title">Como avaliar o teu teste IPTV</h2>
+            </div>
+            <div>
+              <p>Um teste útil vai além de contar canais. Usa estas quatro verificações no teu próprio equipamento antes de escolher um plano.</p>
+              <Link className="text-link" href="/teste-iptv-gratis">Ver o guia do teste <Icon name="arrow" size={18} /></Link>
+            </div>
+          </div>
+          <ol className="trial-check-grid">
+            {trialChecks.map((check, index) => (
+              <li key={check.title}>
+                <div className="trial-check-top"><span className="trial-check-icon"><Icon name={check.icon} size={24} /></span><span className="trial-check-number">0{index + 1}</span></div>
+                <h3>{check.title}</h3>
+                <p>{check.text}</p>
+                <Link href={check.href}>{check.link} <Icon name="arrow" size={16} /></Link>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
       <section className="section section-sand home-pricing" aria-labelledby="precos">
         <div className="container">
           <div className="section-head">
@@ -188,18 +220,18 @@ export default function HomePage() {
         <div className="container compare">
           <div>
             <p className="eyebrow">IPTV vs operador</p>
-            <h2 id="comparar" className="section-title">Mais canais, menos contrato</h2>
-            <p className="section-lead">A TV do operador vem com box e, muitas vezes, fidelização até 24 meses. O IPTV usa a internet que já tens e não te prende.</p>
+            <h2 id="comparar" className="section-title">Compara as condições, não só os canais</h2>
+            <p className="section-lead">Os serviços e pacotes variam. Compara duração, ecrãs, conteúdos e condições de acesso antes de decidir.</p>
             <Link className="text-link" href="/iptv-vs-meo-nos-vodafone">Ler a comparação completa <Icon name="arrow" size={18} /></Link>
           </div>
           <div className="table-wrap" role="region" aria-label="Comparação entre IPTV e operador" tabIndex={0}>
             <table>
               <thead><tr><th scope="col"></th><th scope="col">Operador</th><th scope="col">{siteConfig.name}</th></tr></thead>
               <tbody>
-                <tr><th scope="row">Fidelização</th><td>Comum, até 24 meses</td><td>Nenhuma</td></tr>
-                <tr><th scope="row">Canais internacionais</th><td>Poucos, em pacotes extra</td><td>Dezenas de países incluídos</td></tr>
-                <tr><th scope="row">Ecrãs</th><td>Box do operador</td><td>TV, box, telemóvel, PC</td></tr>
-                <tr><th scope="row">Fora de casa</th><td>Limitado</td><td>Em qualquer internet</td></tr>
+                <tr><th scope="row">Duração</th><td>Depende do contrato</td><td>Planos de 1 a 12 meses, sem fidelização</td></tr>
+                <tr><th scope="row">Canais</th><td>Dependem do pacote escolhido</td><td>Consulta as categorias antes do teste</td></tr>
+                <tr><th scope="row">Ecrãs</th><td>Confirma no teu pacote</td><td>Escolhe 1 a 4 em simultâneo</td></tr>
+                <tr><th scope="row">Fora de casa</th><td>Verifica as condições da app</td><td>Testa na tua ligação e no teu dispositivo</td></tr>
               </tbody>
             </table>
           </div>

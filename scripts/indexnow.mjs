@@ -2,7 +2,7 @@
 // Correr depois de cada deploy com conteúdo novo: npm run indexnow
 import { readFileSync } from "node:fs";
 
-const host = "melhoriptvlistas.pt";
+const host = new URL(process.env.SITE_URL ?? "https://melhoriptvlistas.vercel.app").host;
 const key = readFileSync(new URL("../config/indexnow.ts", import.meta.url), "utf8").match(/"([a-f0-9]{32})"/)[1];
 const sitemap = await (await fetch(`https://${host}/sitemap.xml`)).text();
 const urlList = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
