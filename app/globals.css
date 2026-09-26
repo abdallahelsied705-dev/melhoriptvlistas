@@ -523,7 +523,7 @@ tbody tr:last-child > * { border-bottom: 0; }
 .home .hero-visual { display: grid; place-items: center; min-height: 540px; padding: 0; }
 .home .hero-visual-glow { inset: 10% -8%; background: radial-gradient(ellipse, rgba(251,119,79,.26), rgba(68,121,163,.13) 48%, transparent 75%); }
 .home .hero-product-image { position: relative; z-index: 2; display: block; width: min(112%, 780px); height: auto; max-width: none; margin-right: -5%; object-fit: contain; filter: drop-shadow(0 44px 45px rgba(0,0,0,.36)); animation: product-float 7s ease-in-out infinite; }
-.home .hero-visual-note { bottom: 30px; right: 1%; }
+.home .hero-visual-note { bottom: 30px; right: 1%; border-color: rgba(122,207,243,.38); background: rgba(10,28,46,.82); color: #e7f7ff; box-shadow: 0 16px 40px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.12); backdrop-filter: blur(14px); letter-spacing: .07em; }
 @keyframes product-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 .home .channel-banner { position: relative; display: flex; align-items: center; min-height: 390px; margin-bottom: 28px; overflow: hidden; border-radius: 28px; isolation: isolate; background: #071426; box-shadow: 0 26px 55px rgba(0,0,0,.22); }
 .home .channel-banner > img { z-index: -2; object-fit: cover; object-position: center; }

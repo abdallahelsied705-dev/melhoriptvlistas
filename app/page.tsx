@@ -61,10 +61,10 @@ export default function HomePage() {
       <section className="hero">
         <div className="container hero-grid">
           <div className="hero-copy">
-            <p className="eyebrow eyebrow-live"><span className="live-dot" /> IPTV Portugal · atualizado em 2026</p>
-            <h1>Melhor IPTV em Portugal. <span>{facts.channels} para descobrir.</span></h1>
+            <p className="eyebrow eyebrow-live"><span className="live-dot" /> Subscrições IPTV · Portugal</p>
+            <h1>Melhor IPTV em Portugal. <span>O espetáculo começa aqui.</span></h1>
             <p className="hero-lead">
-              A melhor experiência IPTV começa com uma escolha informada: canais portugueses e internacionais, {facts.vod} até 4K, guia TV e Catch-Up. Testa no teu ecrã antes de escolher um plano.
+              Uma subscrição para ver futebol em direto, canais portugueses e internacionais, filmes e séries a pedido. Descobre {facts.channels} e {facts.vod} até 4K. Testa grátis antes de escolher o teu plano.
             </p>
             <div className="hero-actions">
               <a className="button button-signal button-lg" href={trialUrl()} target="_blank" rel="noopener noreferrer">
@@ -80,8 +80,8 @@ export default function HomePage() {
           </div>
           <div className="hero-visual">
             <div className="hero-visual-glow" aria-hidden="true" />
-            <Image className="hero-product-image" src="/images/hero-devices.webp" alt="Televisão, tablet e telemóvel a apresentar experiências de cinema, desporto e paisagens" width={1400} height={933} sizes="(max-width: 920px) 100vw, 50vw" priority />
-            <div className="hero-visual-note"><span className="live-dot" /> Em todos os teus ecrãs</div>
+            <Image className="hero-product-image" src="/images/hero-streaming.webp" alt="Universo holográfico de conteúdos IPTV com futebol em direto, filmes e séries" width={1536} height={1024} sizes="(max-width: 920px) 100vw, 50vw" priority />
+            <div className="hero-visual-note"><span className="live-dot" /> DESPORTO · FILMES · SÉRIES</div>
           </div>
         </div>
         <div className="container hero-bottom" aria-label="Resumo do serviço">
