@@ -1,10 +1,9 @@
-const liveUrl = process.env.SITE_URL?.replace(/\/$/, "") || "https://melhoriptvlistas.vercel.app";
+const liveUrl = "https://www.melhoriptvlistas.pt";
 
 export const siteConfig = {
   name: "Melhor IPTV Listas",
   shortName: "MelhorIPTV",
   domain: new URL(liveUrl).host,
-  // O domínio .pt ainda não responde; usar a origem pública até o DNS e HTTPS estarem ativos.
   url: liveUrl,
   locale: "pt_PT",
   language: "pt-PT",
