@@ -21,12 +21,12 @@ const nextConfig: NextConfig = {
     ];
   },
   async redirects() {
-    // www → domínio principal (sem www), com 308 permanente.
+    // Redirecionar o domínio sem www para o host canónico com www.
     return [
       {
         source: "/:path*",
-        has: [{ type: "host", value: "www.melhoriptvlistas.pt" }],
-        destination: "https://melhoriptvlistas.pt/:path*",
+        has: [{ type: "host", value: "melhoriptvlistas.pt" }],
+        destination: "https://www.melhoriptvlistas.pt/:path*",
         permanent: true,
       },
     ];
