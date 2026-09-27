@@ -1,7 +1,7 @@
 // Auditoria SEO sobre o site a correr (npm run build && npm start).
 // Uso: node scripts/verify-seo.mjs [http://localhost:3000]
 const base = process.argv[2] ?? "http://localhost:3000";
-const site = (process.env.SITE_URL ?? "https://melhoriptvlistas.vercel.app").replace(/\/$/, "");
+const site = "https://www.melhoriptvlistas.pt";
 const errors = [];
 const warn = [];
 
